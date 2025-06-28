@@ -1,7 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import './globals.css';
+import { useState } from "react";
 
 export default function Home() {
   const [board, setBoard] = useState<Array<string | null>>(Array(9).fill(null));
@@ -31,7 +30,7 @@ export default function Home() {
   const handleClick = (index: number) => {
     if (board[index] || winner) return;
     const newBoard = board.slice();
-    newBoard[index] = isXNext ? 'X' : 'O';
+    newBoard[index] = isXNext ? "X" : "O";
     setBoard(newBoard);
     setIsXNext(!isXNext);
 
@@ -50,7 +49,7 @@ export default function Home() {
   const renderSquare = (index: number) => (
     <button
       key={index}
-      className="square"
+      className="w-24 h-24 text-2xl font-semibold flex justify-center items-center bg-gray-200 border border-gray-400 rounded-md cursor-pointer disabled:bg-gray-300"
       onClick={() => handleClick(index)}
       disabled={board[index] || winner}
     >
@@ -59,23 +58,26 @@ export default function Home() {
   );
 
   return (
-    <div className="game-container">
-      <h1>Tic-Tac-Toe</h1>
-      <div className="board">
+    <div className="flex flex-col items-center mt-12">
+      <h1 className="text-4xl font-bold mb-4">Tic-Tac-Toe</h1>
+      <div className="grid grid-cols-3 gap-2">
         {Array(9)
           .fill(null)
           .map((_, index) => renderSquare(index))}
       </div>
       {winner && (
-        <div className="winner">
-          <h2>{`Player ${winner} Wins!`}</h2>
+        <div className="mt-4 text-xl font-semibold text-green-500">
+          {`Player ${winner} Wins!`}
         </div>
       )}
-      <button className="restart-button" onClick={handleRestart}>
+      <button
+        className="mt-6 py-2 px-4 text-lg bg-green-500 text-white font-semibold rounded-md hover:bg-green-400"
+        onClick={handleRestart}
+      >
         Restart Game
       </button>
-      <div className="status">
-        <h2>{`Next Player: ${isXNext ? 'X' : 'O'}`}</h2>
+      <div className="mt-4 text-xl">
+        {`Next Player: ${isXNext ? "X" : "O"}`}
       </div>
     </div>
   );
