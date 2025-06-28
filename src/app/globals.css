@@ -1,55 +1,5 @@
-.game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
+@import "tailwindcss";
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 5px;
-}
-
-.square {
-  width: 100px;
-  height: 100px;
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.square:disabled {
-  background-color: #ddd;
-}
-
-.winner {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: green;
-}
-
-.restart-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-.restart-button:hover {
-  background-color: #45a049;
-}
-
-.status {
-  margin-top: 20px;
-  font-size: 1.2rem;
-}
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
